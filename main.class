@@ -1,0 +1,25 @@
+public class Main {
+    public static void main(String[] args) {
+        Banco banco = new Banco("Banco Digital DIO");
+
+        Cliente cliente1 = new Cliente("Maria");
+        Cliente cliente2 = new Cliente("João");
+
+        Conta cc1 = new ContaCorrente(cliente1);
+        Conta cp1 = new ContaPoupanca(cliente1);
+
+        Conta cc2 = new ContaCorrente(cliente2);
+
+        banco.adicionarConta(cc1);
+        banco.adicionarConta(cp1);
+        banco.adicionarConta(cc2);
+
+        cc1.depositar(500);
+        cc1.transferir(200, cp1);
+
+        cc1.imprimirExtrato();
+        cp1.imprimirExtrato();
+
+        banco.listarClientes();
+    }
+}
